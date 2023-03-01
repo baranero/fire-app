@@ -1,16 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classes from './MainNavigation.module.scss'
 import { faGear, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import Link from 'next/link';
 
 const MainNavigation = () => {
     return (
         <header className={classes.header}>
-            <h1 className={classes.title}>FireApp</h1>
+            <Link href="/">
+                <h1 className={classes.title}>FireApp</h1>
+            </Link>
             <ul className={classes['nav-list']}>
                 <li className={classes['nav-list-item']}>Urlopy</li>
                 <li className={classes['nav-list-item']}>Nadgodziny</li>
                 <li className={classes['nav-list-item']}>Zwolnienia lekarskie</li>
-                <li className={classes['nav-list-item']}> Użytkownicy</li>
+                <Link href="/users">
+                    <li className={classes['nav-list-item']}>Użytkownicy</li>
+                </Link>
                 <li className={classes['nav-list-item']}>
                     <FontAwesomeIcon
                         icon={faGear}
