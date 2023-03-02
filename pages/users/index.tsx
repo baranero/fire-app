@@ -6,9 +6,11 @@ const Users = () => {
     return (
         <>
             <Head>
+    <title>Jakub</title>
+    </Head>
                 <MainNavigation/>
-            </Head>
-            <UserItem/>
+                <UserItem/>
+            
         </>
     )
    }

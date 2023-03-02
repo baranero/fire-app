@@ -14,4 +14,9 @@ export const users: { id: number, name: string, function: string }[] = [
         name: 'Marek Marek',
         function: 'Firefighter',
     },
+    {
+        id: 4,
+        name: 'Marek Marek',
+        function: 'Firefighter',
+    },
 ]
