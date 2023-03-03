@@ -2,13 +2,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classes from './MainNavigation.module.scss'
 import { faGear, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-const MainNavigation = () => {
+const MainNavigation: React.FC = () => {
+    
+    const router = useRouter();
+    const isActive: (pathname: string) => boolean = (pathname) =>
+      router.pathname === pathname;
+
     return (
         <header className={classes.header}>
+
             <Link href="/">
-                <h1 className={classes.title}>FireApp</h1>
+                <h1 className={classes.title} data-active={isActive("/")}>FireApp</h1>
             </Link>
+
             <ul className={classes['nav-list']}>
                 <li className={classes['nav-list-item']}>Urlopy</li>
                 <li className={classes['nav-list-item']}>Nadgodziny</li>

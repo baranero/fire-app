@@ -1,18 +1,12 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import MainNavigation from '@/components/MainNavigation'
+import React from 'react';
+import Layout from '@/components/Layout';
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <>
-    <Head>
-    <title>Jakub</title>
-    </Head>
-    <MainNavigation />
-    </>
+    <Layout>
+
+    </Layout>
   )
 }
+
+export default Home
