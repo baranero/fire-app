@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import classes from './MainNavigation.module.scss'
+import classes from '../styles/MainNavigation.module.scss'
 import { faGear, faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
 import React from 'react';

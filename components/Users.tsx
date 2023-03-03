@@ -1,4 +1,4 @@
-
+import classes from '../styles/Users.module.scss'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import UserItem, { UserProps } from './UserItem';
-import classes from './Users.module.scss'
 
 type Props = {
   feed: UserProps[]
