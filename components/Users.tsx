@@ -14,7 +14,8 @@ type Props = {
 
 const Users: React.FC<Props> = (props) => {
   return (
-    <TableContainer className={classes['users-container']} component={Paper} >
+    <div className={classes['users-container']}>
+    <TableContainer component={Paper} >
     <Table aria-label="simple table">
       <TableHead>
         <TableRow>
@@ -30,6 +31,7 @@ const Users: React.FC<Props> = (props) => {
       </TableBody>
     </Table>
   </TableContainer>
+  </div>
   )
 }
 
