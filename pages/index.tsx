@@ -1,32 +1,12 @@
-import Head from 'next/head'
-import MainNavigation from '@/components/MainNavigation'
-import prisma from '../lib/prisma';
-import { GetStaticProps } from 'next';
+import React from 'react';
+import Layout from '@/components/Layout';
 
-
-export const getStaticProps: GetStaticProps = async () => {
-  const feed = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true },
-      },
-    },
-  });
-  return {
-    props: { feed },
-    revalidate: 10,
-  };
-};
-
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <>
-    <Head>
-    <title>Jakub</title>
-    </Head>
-    <MainNavigation />
-    </>
+    <Layout>
+
+    </Layout>
   )
 }
 
+export default Home

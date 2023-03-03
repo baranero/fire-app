@@ -1,18 +1,27 @@
-import MainNavigation from "@/components/MainNavigation"
-import Head from "next/head"
-import UserItem from "@/components/Users"
+import Users from "@/components/Users"
+import Layout from "@/components/Layout"
+import prisma from "@/lib/prisma";
+import { GetStaticProps } from "next";
+import { UserProps } from "@/components/UserItem";
 
-const Users = () => {
+export const getStaticProps: GetStaticProps = async () => {
+    const feed = await prisma.users.findMany();
+    return {
+      props: { feed },
+      revalidate: 10,
+    };
+  };
+  
+  type Props = {
+    feed: UserProps[]
+  }  
+
+const UsersPage: React.FC<Props> = (props) => {
     return (
-        <>
-            <Head>
-    <title>Jakub</title>
-    </Head>
-                <MainNavigation/>
-                <UserItem/>
-            
-        </>
+        <Layout>
+            <Users feed={props.feed}/>
+        </Layout>
     )
    }
    
-   export default Users
+   export default UsersPage
