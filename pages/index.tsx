@@ -1,10 +1,23 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import MainNavigation from '@/components/MainNavigation'
+import prisma from '../lib/prisma';
+import { GetStaticProps } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+
+export const getStaticProps: GetStaticProps = async () => {
+  const feed = await prisma.post.findMany({
+    where: { published: true },
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+  });
+  return {
+    props: { feed },
+    revalidate: 10,
+  };
+};
 
 export default function Home() {
   return (
@@ -16,3 +29,4 @@ export default function Home() {
     </>
   )
 }
+
