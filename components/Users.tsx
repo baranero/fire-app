@@ -1,4 +1,4 @@
-import classes from './Users.module.scss'
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import UserItem, { UserProps } from './UserItem';
+import classes from './Users.module.scss'
 
 type Props = {
   feed: UserProps[]
@@ -14,7 +15,7 @@ type Props = {
 
 const Users: React.FC<Props> = (props) => {
   return (
-    <TableContainer component={Paper} className={classes['users-container']}>
+    <TableContainer className={classes['users-container']} component={Paper} >
     <Table aria-label="simple table">
       <TableHead>
         <TableRow>

@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import MainNavigation from "./MainNavigation";
+import classes from './Layout.module.scss'
 
 type Props = {
   children: ReactNode;
@@ -8,7 +9,7 @@ type Props = {
 const Layout: React.FC<Props> = (props) => (
     <>
         <MainNavigation/>
-        <div className="layout">{props.children}</div>
+        <div className={classes.layout}>{props.children}</div>
     </>
 )
 
