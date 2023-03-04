@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import UserItem, { UserProps } from './UserItem';
-import Link from 'next/link';
 
 type Props = {
   feed: UserProps[]
@@ -17,19 +16,19 @@ const Users: React.FC<Props> = (props) => {
   return (
     <div className={classes['users-container']}>
       <TableContainer component={Paper} >
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Imię i nazwisko</TableCell>
-            <TableCell>Funkcja</TableCell>
+      <Table component='div' aria-label="simple table">
+        <TableHead component='div'>
+          <TableRow component='div'>
+            <TableCell component='div'>ID</TableCell>
+            <TableCell component='div'>Imię i nazwisko</TableCell>
+            <TableCell component='div'>Funkcja</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody component='div'>
           {props.feed.map((user) => (
-            <TableRow component={Link} key={user.id} href={`/users/${user.id}`}>
-                <UserItem  user={user}/>
-              </TableRow>
+
+                <UserItem key={user.id} user={user}/>
+
           ))}
         </TableBody>
       </Table>

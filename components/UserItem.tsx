@@ -9,11 +9,11 @@ export type UserProps = {
 
 const UserItem: React.FC<{ user: UserProps }> = ({ user }) => {
     return (
-                <>
-                    <TableCell>{user.id}</TableCell>
-                    <TableCell>{user.name}</TableCell>
-                    <TableCell>{user.function}</TableCell>
-                </>
+                <TableRow component={Link} href={`/users/${user.id}`}>
+                        <TableCell component='div'>{user.id}</TableCell>
+                        <TableCell component='div'>{user.name}</TableCell>
+                        <TableCell component='div'>{user.function}</TableCell>
+                </TableRow>
     )
 }
 
