@@ -1,45 +1,30 @@
-import { UserProps } from "@/components/UserItem"
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Layout from "@/components/Layout";
 import { useRouter } from "next/router";
+import UserDetail from "@/components/UserDetail";
+import { GetServerSideProps } from "next";
+import prisma from "@/lib/prisma";
 
-type Props = {
-    feed: UserProps[]
-  } 
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const person = await prisma.users.findUnique({
+    where: {
+      id: String(params?.id),
+    }
+  });
+  return {
+    props: { person },
+  };
+};
 
-const bull = (
-    <Box
-      component="span"
-      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-      •
-    </Box>
-  );
+export type PersonProps = {
+  id: string
+  name: string
+  function: string
+}
 
-const UserDetail: React.FC<Props> = (props) => {
-
-  const router = useRouter()
-
-  router.query.users
+const User: React.FC<{ person: PersonProps}> = (props) => {
 
     return (
-        <Layout>
-          <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography variant="h5" component="div">
-              ABC
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              DEF
-            </Typography>
-          </CardContent>
-                </Card>
-        </Layout>
+      <UserDetail person={props.person}/>
     )
 }
 
-export default UserDetail
+export default User

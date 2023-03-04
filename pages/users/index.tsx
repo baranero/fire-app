@@ -5,21 +5,22 @@ import { GetStaticProps } from "next";
 import { UserProps } from "@/components/UserItem";
 
 export const getStaticProps: GetStaticProps = async () => {
-    const feed = await prisma.users.findMany();
-    return {
-      props: { feed },
-      revalidate: 10,
-    };
+  const person = await prisma.users.findMany();
+  return {
+    props: { person },
+    revalidate: 10,
   };
-  
-  type Props = {
-    feed: UserProps[]
-  }  
+};
+
+type Props = {
+  person: UserProps[]
+}
 
 const UsersPage: React.FC<Props> = (props) => {
+
     return (
         <Layout>
-            <Users feed={props.feed}/>
+            <Users user={props.person}/>
         </Layout>
     )
    }

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import MainNavigation from "./MainNavigation";
-import classes from '../styles/Layout.module.scss'
+import classes from './Layout.module.scss'
 
 type Props = {
   children: ReactNode;
