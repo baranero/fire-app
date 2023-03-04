@@ -1,4 +1,4 @@
-import { TableCell, TableRow } from "@mui/material"
+import { Link, TableCell, TableRow } from "@mui/material"
 
 export type UserProps = {
     id: string
@@ -9,11 +9,11 @@ export type UserProps = {
 
 const UserItem: React.FC<{ user: UserProps }> = ({ user }) => {
     return (
-        <TableRow>
-            <TableCell>{user.id}</TableCell>
-            <TableCell>{user.name}</TableCell>
-            <TableCell>{user.function}</TableCell>
-          </TableRow>
+                <>
+                    <TableCell>{user.id}</TableCell>
+                    <TableCell>{user.name}</TableCell>
+                    <TableCell>{user.function}</TableCell>
+                </>
     )
 }
 
